@@ -32,6 +32,9 @@ public class HewanAdapter extends RecyclerView.Adapter<HewanAdapter.HewanViewHol
         Hewan hewan = hewans.get(position);
         holder.jenis.setText(hewan.getNama());
         holder.kaki.setText("Berkaki" + hewan.getKaki());
+        holder.itemView.setOnClickListener(v->{
+
+        });
     }
 
     @Override
