@@ -17,9 +17,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Hewan> hewans = new ArrayList<>();
-    private RecyclerView recyclerView;
-    private HewanAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,23 +29,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        recyclerView = findViewById(R.id.rv_hewan);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        DbHelper dbHelper = new DbHelper(this);
-        Cursor c = dbHelper.getAllData();
-        while(c.moveToNext()){
-            Hewan h = new Hewan(c.getString(0), c.getInt(1));
-            hewans.add(h);
-        }
-
-        adapter = new HewanAdapter(this, hewans);
-        recyclerView.setAdapter(adapter);
-
-        Button btn = findViewById(R.id.add);
-        btn.setOnClickListener(v->{
-            getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new AddFragment()).commit();
-        });
+        getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new RVFragment()).commit();
 
     }
 }
