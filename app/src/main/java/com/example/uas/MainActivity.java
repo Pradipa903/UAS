@@ -2,6 +2,7 @@ package com.example.uas;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,5 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new HewanAdapter(this, hewans);
         recyclerView.setAdapter(adapter);
+
+        Button btn = findViewById(R.id.add);
+        btn.setOnClickListener(v->{
+            getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new AddFragment()).commit();
+        });
+
     }
 }
