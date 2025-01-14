@@ -1,12 +1,15 @@
 package com.example.uas;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -14,6 +17,7 @@ import java.util.List;
 public class HewanAdapter extends RecyclerView.Adapter<HewanAdapter.HewanViewHolder> {
     private Context context;
     private List<Hewan> hewans;
+    private FragmentActivity activity;
 
     public HewanAdapter(Context context, List<Hewan> hewans) {
         this.context = context;
@@ -33,7 +37,14 @@ public class HewanAdapter extends RecyclerView.Adapter<HewanAdapter.HewanViewHol
         holder.jenis.setText(hewan.getNama());
         holder.kaki.setText("Berkaki" + hewan.getKaki());
         holder.itemView.setOnClickListener(v->{
+            PostFragment postFragment = new PostFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("jenis", hewan.getNama());
+            bundle.putInt("kaki", hewan.getKaki());
+            postFragment.setArguments(bundle);
 
+            FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.framelayout, postFragment).addToBackStack(null).commit();
         });
     }
 

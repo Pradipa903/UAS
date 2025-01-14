@@ -13,4 +13,12 @@
         android:text="Ini post jenis"
         android:textSize="100dp"/>
 
+    <TextView
+        android:id="@+id/post_kaki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dp"
+        android:text="kaki"
+        android:layout_marginTop="200dp"/>
+
 </FrameLayout>
