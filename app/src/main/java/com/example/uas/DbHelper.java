@@ -15,9 +15,13 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE Hewan" + "(jenis text, kaki int)";
+        String query = "CREATE TABLE Hewan (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +  // Kolom id dengan auto-increment
+                "jenis TEXT, " +                            // Kolom jenis
+                "kaki INTEGER)";                            // Kolom kaki
         db.execSQL(query);
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -30,8 +34,8 @@ public class DbHelper extends SQLiteOpenHelper {
         cv.put("kaki", kaki);
         cv.put("jenis", jenis);
         long status = db.insert("Hewan", null, cv);
-        if(status == 1) return true;
-        return false;
+        if(status == -1) return false;
+        return true;
     }
 
     public Cursor getAllData(){
