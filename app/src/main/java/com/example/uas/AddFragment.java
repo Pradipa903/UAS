@@ -22,6 +22,7 @@ public class AddFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private HewanAdapter adapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -73,7 +74,15 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 boolean status = dbHelper.addData(jenis.getText().toString(), Integer.parseInt(kaki.getText().toString()));
-                if (status) Toast.makeText(getContext(), "Hewan inserted", Toast.LENGTH_SHORT).show();
+                if (status) {
+                    Toast.makeText(getContext(), "Hewan inserted", Toast.LENGTH_SHORT).show();
+                    adapter.notifyDataSetChanged();
+                    requireActivity().getSupportFragmentManager().popBackStack();
+                }
+                else{
+                    Toast.makeText(getContext(), "Fail to insert", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         return view;
