@@ -79,7 +79,7 @@ public class RVFragment extends Fragment {
         DbHelper dbHelper = new DbHelper(getContext());
         Cursor c = dbHelper.getAllData();
         while(c.moveToNext()){
-            Hewan h = new Hewan(c.getString(0), c.getInt(1));
+            Hewan h = new Hewan(c.getString(0), c.getString(1));
             hewans.add(h);
         }
 

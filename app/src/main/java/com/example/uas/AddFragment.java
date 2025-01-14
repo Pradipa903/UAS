@@ -73,7 +73,7 @@ public class AddFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean status = dbHelper.addData(jenis.getText().toString(), Integer.parseInt(kaki.getText().toString()));
+                boolean status = dbHelper.addData(jenis.getText().toString(), kaki.getText().toString());
                 if (status) {
                     Toast.makeText(getContext(), "Hewan inserted", Toast.LENGTH_SHORT).show();
                     adapter.notifyDataSetChanged();

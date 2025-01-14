@@ -40,7 +40,7 @@ public class HewanAdapter extends RecyclerView.Adapter<HewanAdapter.HewanViewHol
             PostFragment postFragment = new PostFragment();
             Bundle bundle = new Bundle();
             bundle.putString("jenis", hewan.getNama());
-            bundle.putInt("kaki", hewan.getKaki());
+            bundle.putString("kaki", hewan.getKaki());
             postFragment.setArguments(bundle);
 
             FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();

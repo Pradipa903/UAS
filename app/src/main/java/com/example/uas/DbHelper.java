@@ -28,7 +28,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean addData(String jenis, int kaki){
+    public boolean addData(String jenis, String kaki){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("kaki", kaki);

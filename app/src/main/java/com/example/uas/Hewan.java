@@ -1,10 +1,9 @@
 package com.example.uas;
 
 public class Hewan {
-    String nama;
-    int kaki;
+    String nama, kaki;
 
-    public Hewan(String nama, int kaki) {
+    public Hewan(String nama, String kaki) {
         this.nama = nama;
         this.kaki = kaki;
     }
@@ -17,11 +16,11 @@ public class Hewan {
         this.nama = nama;
     }
 
-    public int getKaki() {
+    public String getKaki() {
         return kaki;
     }
 
-    public void setKaki(int kaki) {
+    public void setKaki(String kaki) {
         this.kaki = kaki;
     }
 }
