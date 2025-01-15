@@ -89,7 +89,7 @@ public class RVFragment extends Fragment {
     }
 
     public void loadData(){
-        hewans.clear();
+//        hewans.clear();
         DbHelper dbHelper = new DbHelper(getContext());
         Cursor c = dbHelper.getAllData();
         while(c.moveToNext()){
