@@ -80,7 +80,7 @@ public class AddFragment extends Fragment {
                     if (rvFragment!= null){
                         rvFragment.loadData();
                     }
-                    requireActivity().getSupportFragmentManager().popBackStack();
+                    requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new RVFragment());
                 }
                 else{
                     Toast.makeText(getContext(), "Fail to insert", Toast.LENGTH_SHORT).show();
