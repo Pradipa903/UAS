@@ -76,7 +76,10 @@ public class AddFragment extends Fragment {
                 boolean status = dbHelper.addData(jenis.getText().toString(), kaki.getText().toString());
                 if (status) {
                     Toast.makeText(getContext(), "Hewan inserted", Toast.LENGTH_SHORT).show();
-                    adapter.notifyDataSetChanged();
+                    RVFragment rvFragment = (RVFragment) requireActivity().getSupportFragmentManager().findFragmentByTag("RVFragmentTag");
+                    if (rvFragment!= null){
+                        rvFragment.loadData();
+                    }
                     requireActivity().getSupportFragmentManager().popBackStack();
                 }
                 else{

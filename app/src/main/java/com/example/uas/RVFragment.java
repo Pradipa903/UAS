@@ -76,12 +76,7 @@ public class RVFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rv_hewan);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        DbHelper dbHelper = new DbHelper(getContext());
-        Cursor c = dbHelper.getAllData();
-        while(c.moveToNext()){
-            Hewan h = new Hewan(c.getString(0), c.getString(1));
-            hewans.add(h);
-        }
+
 
         adapter = new HewanAdapter(getContext(), hewans);
         recyclerView.setAdapter(adapter);
@@ -91,5 +86,16 @@ public class RVFragment extends Fragment {
             requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framelayout, new AddFragment()).addToBackStack(null).commit();
         });
         return view;
+    }
+
+    public void loadData(){
+        hewans.clear();
+        DbHelper dbHelper = new DbHelper(getContext());
+        Cursor c = dbHelper.getAllData();
+        while(c.moveToNext()){
+            Hewan h = new Hewan(c.getString(0), c.getString(1));
+            hewans.add(h);
+        }
+        adapter.notifyDataSetChanged();
     }
 }
